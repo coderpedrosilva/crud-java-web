@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Jan 17 17:29:53 BRT 2024
+org.eclipse.jst.jee.server\:Hello\ tomcat=/opt/apache-tomcat-9.0.85/wtpwebapps/Hello tomcat
+org.eclipse.jst.jee.server\:Hello\ Servlet=/opt/apache-tomcat-9.0.85/wtpwebapps/Hello Servlet
