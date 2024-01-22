@@ -1,5 +1,5 @@
 #Tomcat publish data
-#Sat Jan 20 16:42:21 BRT 2024
+#Mon Jan 22 12:32:52 BRT 2024
 org.eclipse.jst.jee.server\:agenda=/opt/apache-tomcat-9.0.85/wtpwebapps/agenda
 org.eclipse.jst.jee.server\:Hello\ tomcat=/opt/apache-tomcat-9.0.85/wtpwebapps/Hello tomcat
 org.eclipse.jst.jee.server\:Hello\ JSP=/opt/apache-tomcat-9.0.85/wtpwebapps/Hello JSP
