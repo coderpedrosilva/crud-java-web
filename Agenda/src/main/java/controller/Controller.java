@@ -31,14 +31,11 @@ public class Controller extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// teste de conexão
-		// dao.testeConexao();
 		String action = request.getServletPath();
-		System.out.println(action);
 		if (action.equals("/main")) {
 			contatos(request, response);
 		} else if (action.equals("/insert")) {
-			novoContato(request, response);
+			adicionarContato(request, response);
 		} else if (action.equals("/select")) {
 			listarContato(request, response);
 		} else if (action.equals("/update")) {
@@ -64,7 +61,7 @@ public class Controller extends HttpServlet {
 	}
 
 	// Novo contato
-	protected void novoContato(HttpServletRequest request, HttpServletResponse response)
+	protected void adicionarContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// setar as variáveis JavaBeans
 		contato.setNome(request.getParameter("nome"));
@@ -79,10 +76,8 @@ public class Controller extends HttpServlet {
 	// Editar contato
 	protected void listarContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Recebimento do id do contato que será editado
-		String idcon = request.getParameter("idcon");
 		// Setar a variável JavaBeans
-		contato.setIdcon(idcon);
+		contato.setIdcon(request.getParameter("idcon"));
 		// Executar o método selecionar Contato (DAO)
 		dao.selecionarContato(contato);
 		// Setar os atributos do formulário com o conteúdo JavaBeans
@@ -111,16 +106,14 @@ public class Controller extends HttpServlet {
 	// Remover um contato
 	protected void removerContato(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Recebimento do id do contato a ser excluído (validador.js)
-		String idcon = request.getParameter("idcon");
 		// Setar a variável idcon no JavaBeans
-		contato.setIdcon(idcon);
+		contato.setIdcon(request.getParameter("idcon"));
 		// Executar o método deletar contato (DAO) passando o objeto contato
 		dao.deletarContato(contato);
 		// Redirecionar para o documento agenda.jsp (atualizando as alterações)
 		response.sendRedirect("main");
 	}
-	
+
 	// Gerar relatório em PDF
 	protected void gerarRelatorio(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
